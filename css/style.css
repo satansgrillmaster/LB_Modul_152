@@ -14,14 +14,13 @@ body{
 }
 
 .product{
-    height: 600px;
-    width: 600px;
-    display: flex;
-    justify-content: center;
-    background-color: blue;
+    height: 800px;
+    width: 800px;
+    min-height: 600px;
 }
 
-.productImg{
-    width: 600px;
-    height: 600px;
+.click-pos{
+    height: 80px;
+    width: 80px;
+    position: absolute;
 }

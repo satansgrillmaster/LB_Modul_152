@@ -8,8 +8,8 @@
       "gpu": {
         "pk": 1,
         "imgSrc": "./media/img/GPU_1.png",
-        "x": 0,
-        "y": 0,
+        "offsetX": "200px",
+        "offsetY": "500px",
         "name": "nVidia GeForce RTX 3090 TI",
         "memory": "24GB",
         "frequency": "1670 Mhz",
@@ -21,8 +21,8 @@
       "cpu": {
         "pk": 2,
         "imgSrc": "./media/img/CPU_2.jpg",
-        "x": 0,
-        "y": 0,
+        "offsetX": "250px",
+        "offsetY": "350px",
         "name": "Intel Core i9-13900K",
         "core": "24 -Core",
         "frequency": "5.80 GHz"
@@ -30,8 +30,8 @@
       "ssd": {
         "pk": 3,
         "imgSrc": "./media/img/SSD_1.jpg",
-        "x": 0,
-        "y": 0,
+        "offsetX": "400px",
+        "offsetY": "350px",
         "name": "Samsung 970 EVO Plus",
         "storage": "1 TB",
         "readspeed": "3500 MB/s",
