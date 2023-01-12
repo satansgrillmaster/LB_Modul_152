@@ -7,12 +7,12 @@
     "canvas": {
       "gpu": {
         "pk": 1,
-        "imgSrc": "",
+        "imgSrc": "./media/img/GPU_1.png",
         "x": 0,
         "y": 0,
-        "name": "",
-        "memory": "",
-        "frequency": "",
+        "name": "nVidia GeForce RTX 3090 TI",
+        "memory": "24GB",
+        "frequency": "1670 Mhz",
         "fanImg": {
           "fanX": 0,
           "fanY": 0
@@ -20,22 +20,22 @@
       },
       "cpu": {
         "pk": 2,
-        "imgSrc": "",
+        "imgSrc": "./media/img/CPU_2.jpg",
         "x": 0,
         "y": 0,
-        "name": "",
-        "core": "",
-        "frequency": ""
+        "name": "Intel Core i9-13900K",
+        "core": "24 -Core",
+        "frequency": "5.80 GHz"
       },
       "ssd": {
         "pk": 3,
-        "imgSrc": "",
+        "imgSrc": "./media/img/SSD_1.jpg",
         "x": 0,
         "y": 0,
-        "name": "",
-        "storage": "",
-        "readspeed": "",
-        "writespeed": ""
+        "name": "Samsung 970 EVO Plus",
+        "storage": "1 TB",
+        "readspeed": "3500 MB/s",
+        "writespeed": "3300 MB/s"
       }
     }
   },
@@ -47,12 +47,12 @@
     "canvas": {
       "gpu": {
         "pk": 1,
-        "imgSrc": "",
+        "imgSrc": "./media/img/GPU_2.png",
         "x": 0,
         "y": 0,
-        "name": "",
-        "memory": "",
-        "frequency": "",
+        "name": "GTX 1660 Ti",
+        "memory": "6 GB",
+        "frequency": "1770 MHz",
         "fanImg": {
           "fanX": 0,
           "fanY": 0
@@ -60,22 +60,22 @@
       },
       "cpu": {
         "pk": 2,
-        "imgSrc": "",
+        "imgSrc": "./media/img/CPU_3.jpg",
         "x": 0,
         "y": 0,
-        "name": "",
-        "core": "",
-        "frequency": ""
+        "name": "Intel Core i7-13700K",
+        "core": "16 -Core",
+        "frequency": "5.40"
       },
       "ssd": {
         "pk": 3,
-        "imgSrc": "",
+        "imgSrc": "./media/img/SSD_2.jpg",
         "x": 0,
         "y": 0,
-        "name": "",
-        "storage": "",
-        "readspeed": "",
-        "writespeed": ""
+        "name": "Samsung 870 QVO",
+        "storage": "1 TB",
+        "readspeed": "560 MB/s",
+        "writespeed": "530 MB/s"
       }
     }
   },
@@ -87,12 +87,12 @@
     "canvas": {
       "gpu": {
         "pk": 1,
-        "imgSrc": "",
+        "imgSrc": "./media/img/GPU_3.png",
         "x": 0,
         "y": 0,
-        "name": "",
-        "memory": "",
-        "frequency": "",
+        "name": "Asus Radeon ROG STRIX LC RX 6900 XT",
+        "memory": "16 GB",
+        "frequency": "2375 MHz",
         "fanImg": {
           "fanX": 0,
           "fanY": 0
@@ -100,22 +100,22 @@
       },
       "cpu": {
         "pk": 2,
-        "imgSrc": "",
+        "imgSrc": "./media/img/CPU_1.jpg",
         "x": 0,
         "y": 0,
-        "name": "",
-        "core": "",
-        "frequency": ""
+        "name": "AMD Ryzen 9 7900X",
+        "core": "12-Core",
+        "frequency": "5.60 GHz"
       },
       "ssd": {
         "pk": 3,
-        "imgSrc": "",
+        "imgSrc": "./media/img/SSD_3.jpg",
         "x": 0,
         "y": 0,
-        "name": "",
-        "storage": "",
-        "readspeed": "",
-        "writespeed": ""
+        "name": "WD Green",
+        "storage": "500 GB",
+        "readspeed": "545 MB/s",
+        "writespeed": "750 MB/s"
       }
     }
   }
