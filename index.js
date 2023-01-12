@@ -12,10 +12,10 @@ function fetchData(path) {
 
 }
 
-function initSlider(){
+function initSlider() {
     let products = fetchData('./fixtures/products.json');
     products.then(data => {
-        for(let i=0; i < data.length; i++){
+        for (let i = 0; i < data.length; i++) {
 
             const product = document.createElement('div');
             product.setAttribute('name', data[i].productName)

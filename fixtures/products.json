@@ -3,7 +3,7 @@
     "pk": 1,
     "productName": "PC-1",
     "description": "",
-    "backgroundSrc": "./media/img/test.jpg",
+    "backgroundSrc": "./media/img/PC_1.jpg",
     "canvas": {
       "gpu": {
         "pk": 1,
@@ -43,7 +43,7 @@
     "pk": 2,
     "productName": "PC-2",
     "description": "",
-    "backgroundSrc": "./media/img/test.jpg",
+    "backgroundSrc": "./media/img/PC_2.jpeg",
     "canvas": {
       "gpu": {
         "pk": 1,
@@ -83,7 +83,7 @@
     "pk": 3,
     "productName": "PC-3",
     "description": "",
-    "backgroundSrc": "./media/img/test.jpg",
+    "backgroundSrc": "./media/img/PC_3.jpg",
     "canvas": {
       "gpu": {
         "pk": 1,
