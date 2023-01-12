@@ -2,22 +2,120 @@
   {
     "pk": 1,
     "productName": "PC-1",
+    "description": "",
     "backgroundSrc": "./media/img/test.jpg",
     "canvas": {
-      "canvas1": {
-        "canvasPk": 1,
+      "gpu": {
+        "pk": 1,
+        "imgSrc": "",
         "x": 0,
-        "y": 0
+        "y": 0,
+        "name": "",
+        "memory": "",
+        "frequency": "",
+        "fanImg": {
+          "fanX": 0,
+          "fanY": 0
+        }
       },
-      "canvas2": {
-        "canvasPk": 2,
+      "cpu": {
+        "pk": 2,
+        "imgSrc": "",
         "x": 0,
-        "y": 0
+        "y": 0,
+        "name": "",
+        "core": "",
+        "frequency": ""
       },
-      "canvas3": {
-        "canvasPk": 3,
+      "ssd": {
+        "pk": 3,
+        "imgSrc": "",
         "x": 0,
-        "y": 0
+        "y": 0,
+        "name": "",
+        "storage": "",
+        "readspeed": "",
+        "writespeed": ""
+      }
+    }
+  },
+  {
+    "pk": 2,
+    "productName": "PC-2",
+    "description": "",
+    "backgroundSrc": "./media/img/test.jpg",
+    "canvas": {
+      "gpu": {
+        "pk": 1,
+        "imgSrc": "",
+        "x": 0,
+        "y": 0,
+        "name": "",
+        "memory": "",
+        "frequency": "",
+        "fanImg": {
+          "fanX": 0,
+          "fanY": 0
+        }
+      },
+      "cpu": {
+        "pk": 2,
+        "imgSrc": "",
+        "x": 0,
+        "y": 0,
+        "name": "",
+        "core": "",
+        "frequency": ""
+      },
+      "ssd": {
+        "pk": 3,
+        "imgSrc": "",
+        "x": 0,
+        "y": 0,
+        "name": "",
+        "storage": "",
+        "readspeed": "",
+        "writespeed": ""
+      }
+    }
+  },
+  {
+    "pk": 3,
+    "productName": "PC-3",
+    "description": "",
+    "backgroundSrc": "./media/img/test.jpg",
+    "canvas": {
+      "gpu": {
+        "pk": 1,
+        "imgSrc": "",
+        "x": 0,
+        "y": 0,
+        "name": "",
+        "memory": "",
+        "frequency": "",
+        "fanImg": {
+          "fanX": 0,
+          "fanY": 0
+        }
+      },
+      "cpu": {
+        "pk": 2,
+        "imgSrc": "",
+        "x": 0,
+        "y": 0,
+        "name": "",
+        "core": "",
+        "frequency": ""
+      },
+      "ssd": {
+        "pk": 3,
+        "imgSrc": "",
+        "x": 0,
+        "y": 0,
+        "name": "",
+        "storage": "",
+        "readspeed": "",
+        "writespeed": ""
       }
     }
   }

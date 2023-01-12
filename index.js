@@ -22,6 +22,7 @@ function initSlider(){
             product.setAttribute('class', 'product')
 
             const productImg = document.createElement('img');
+            productImg.setAttribute('class', 'productImg')
             productImg.src = data[i].backgroundSrc;
 
 
