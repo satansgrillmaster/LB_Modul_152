@@ -1,0 +1,18 @@
+body{
+    display: flex;
+    justify-content: center;
+}
+
+#content{
+    width: 1920px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    background-color: blueviolet;
+}
+
+.product{
+    height: 100px;
+    width: 100px;
+    background-color: blue;
+}

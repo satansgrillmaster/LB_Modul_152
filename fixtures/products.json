@@ -1,0 +1,24 @@
+[
+  {
+    "pk": 1,
+    "productName": "PC-1",
+    "backgroundSrc": "./media/img/test.jpg",
+    "canvas": {
+      "canvas1": {
+        "canvasPk": 1,
+        "x": 0,
+        "y": 0
+      },
+      "canvas2": {
+        "canvasPk": 2,
+        "x": 0,
+        "y": 0
+      },
+      "canvas3": {
+        "canvasPk": 3,
+        "x": 0,
+        "y": 0
+      }
+    }
+  }
+]
