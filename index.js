@@ -103,28 +103,28 @@ function generateSpecificationDiv(componentType, data){
     specificationDescription.style.height = "300px"
     specificationDescription.style.backgroundColor = "rgba(255, 255, 255, 0.5)"
 
+
     if (componentType === 1){
 
         var image = document.getElementById('fanImg');
 
-
-
         var fanCanvas = document.createElement('canvas');
-        fanCanvas.style.width = image.width.toString() + 'px'
+        fanCanvas.setAttribute('id', 'canvas')
+        fanCanvas.style.width = image.width.toString() * 2 + 'px'
         fanCanvas.style.height = image.height.toString() + 'px';
+        fanCanvas.style.marginTop = "76px"
+        fanCanvas.style.marginRight = "64px"
 
         fanCanvas.getBoundingClientRect();
 
         var ctx = fanCanvas.getContext('2d');
-        // ctx.clearRect(0,0,fanCanvas.width,fanCanvas.height);
-        // ctx.save();
-        // ctx.translate(-img.width/3,-img.height/3);
-        //ctx.rotate(30 *Math.PI/180);
+        ctx.clearRect(0,0,fanCanvas.width,fanCanvas.height);
+        ctx.save();
         ctx.drawImage(image,
             fanCanvas.width / 2 - image.width / 2,
             fanCanvas.height / 2 - image.height / 2
         );
-        ctx.restore();
+        setTimeout(rotate,2000)
 
     }
 
@@ -133,4 +133,29 @@ function generateSpecificationDiv(componentType, data){
     specificationDiv.appendChild(specificationDescription);
 }
 
+
+function rotate(){
+
+    const canvas = document.getElementById('canvas');
+    var image = document.getElementById('fanImg');
+    image.src = '../media/img/GPU_1_fan.png';
+    const ctx = canvas.getContext('2d');
+
+
+// Matrix transformation
+    ctx.translate(150, 75);
+    ctx.rotate(Math.PI / 2);
+    ctx.translate(-150, -75);
+
+// Rotated rectangle
+    ctx.drawImage(image,
+        canvas.width / 2 - image.width / 2,
+        canvas.height / 2 - image.height / 2
+    );
+
+
+    setTimeout(rotate,15)
+}
+
 initSlider();
+
