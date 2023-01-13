@@ -101,10 +101,25 @@ function generateSpecificationDiv(componentType, data){
     specificationDescription.style.backgroundColor = "rgba(255, 255, 255, 0.5)"
 
     if (componentType === 1){
+
+        var image = document.getElementById('fanImg');
+
+
+
         var fanCanvas = document.createElement('canvas');
-        fanCanvas.style.width = "200px"
-        fanCanvas.style.height = "200px"
-        fanCanvas.style.backgroundColor = "yellow"
+        fanCanvas.style.width = image.width.toString() + 'px'
+        fanCanvas.style.height = image.height.toString() + 'px'
+
+        fanCanvas.getBoundingClientRect();
+
+        var ctx = fanCanvas.getContext('2d');
+        // ctx.clearRect(0,0,fanCanvas.width,fanCanvas.height);
+        ctx.save();
+        // ctx.translate(-img.width/3,-img.height/3);
+        //ctx.rotate(30 *Math.PI/180);
+        ctx.drawImage(image, 0, 0);
+        ctx.restore();
+
     }
 
     content.appendChild(specificationDiv);
