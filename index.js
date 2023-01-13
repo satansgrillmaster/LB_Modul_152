@@ -156,7 +156,8 @@ function generateSpecificationDiv(componentType, data) {
     product.hidden = true;
 
     let specificationDiv = document.createElement('div');
-    specificationDiv.setAttribute('id', 'specificationDiv');
+    specificationDiv.setAttribute('name', 'specificationDiv');
+    specificationDiv.setAttribute('id', 'specificationDiv_' + data.pk.toString());
     specificationDiv.setAttribute('class', 'specification');
 
 
@@ -186,7 +187,7 @@ function generateSpecificationDiv(componentType, data) {
         ctx.clearRect(0, 0, fanCanvas.width, fanCanvas.height);
         ctx.save();
         ctx.drawImage(image, fanCanvas.width / 2 - image.width / 2, fanCanvas.height / 2 - image.height / 2);
-        setTimeout(rotateGpuFan, 2000)
+        setTimeout(rotateGpuFan, 1000)
         specificationDiv.appendChild(fanCanvas)
 
     } else if (componentType === 2) {
@@ -195,26 +196,38 @@ function generateSpecificationDiv(componentType, data) {
         specificationDiv.style.backgroundImage = "url('" + data.canvas.ssd.imgSrc + "')";
     }
     specificationDiv.appendChild(specificationDescription);
-}
 
+    content.addEventListener('dblclick', () => {
+        let specificationDiv = document.getElementById('specificationDiv_' + data.pk.toString())
+        let product = document.getElementById('product_' + data.pk.toString())
+        specificationDiv.remove()
+        product.hidden = false;
+    })
+}
 
 function rotateGpuFan() {
 
     const canvas = document.getElementById('canvas');
     var image = document.getElementById('fanImg');
     image.src = 'media/img/GPU_1_fan.png';
-    const ctx = canvas.getContext('2d');
 
-
-// Matrix transformation
-    ctx.translate(150, 75);
-    ctx.rotate(Math.PI / 2);
-    ctx.translate(-150, -75);
+    if (canvas !== null){
+        const ctx = canvas.getContext('2d');
+        // Matrix transformation
+        ctx.translate(150, 75);
+        ctx.rotate(Math.PI / 2);
+        ctx.translate(-150, -75);
 
 // Rotated rectangle
-    ctx.drawImage(image, canvas.width / 2 - image.width / 2, canvas.height / 2 - image.height / 2);
+        ctx.drawImage(image, canvas.width / 2 - image.width / 2, canvas.height / 2 - image.height / 2);
 
-    setTimeout(rotateGpuFan, 15)
+        setTimeout(rotateGpuFan, 15)
+    }
+    else {
+        return;
+    }
+
+
 }
 
 initSlider();
