@@ -1,5 +1,7 @@
+// main container from the website
 const content = document.getElementById('content');
 
+// helpfunction to fetch data from a json file
 function fetchData(path) {
     return fetch(path, {
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
@@ -14,7 +16,10 @@ function fetchData(path) {
 
 }
 
+// instantiate the slider with the products
 function initSlider() {
+
+    // fetch testdata from "products.json" file
     let products = fetchData('./fixtures/products.json');
 
     const slideButtonContainer = document.createElement('div');
@@ -36,6 +41,8 @@ function initSlider() {
     slideButtonContainer.appendChild(slideButtonBackward);
 
     products.then(data => {
+
+        // generate clickable position for each product (pc) for gpu, cpu and ssd
         for (let i = 0; i < data.length; i++) {
 
             const product = document.createElement('div');
@@ -87,15 +94,15 @@ function initSlider() {
             product.appendChild(clickPosSSD);
             content.appendChild(slideButtonContainer);
 
+            // if the first product from the slider is rendered, disable the rest
             if (i > 0) {
                 product.hidden = true;
             }
-
-            //break;
         }
     })
 }
 
+// slide the product, for or backward
 function slide(direction) {
     var actProduct = null;
     var newProduct = null;
@@ -139,6 +146,8 @@ function slide(direction) {
     }
 }
 
+
+// help function to click on a component
 function onComponentClick(componentType, data) {
 
     if (componentType === 1) {
@@ -150,10 +159,13 @@ function onComponentClick(componentType, data) {
     }
 }
 
+// generate a div to show a specification of the selected component
 function generateSpecificationDiv(componentType, data) {
 
     let product = document.getElementById('product_' + data.pk.toString());
+    let slideButtonContainer = document.getElementById('slide-container');
     product.hidden = true;
+    slideButtonContainer.hidden = true;
 
     let specificationDiv = document.createElement('div');
     specificationDiv.setAttribute('name', 'specificationDiv');
@@ -168,49 +180,60 @@ function generateSpecificationDiv(componentType, data) {
 
     content.appendChild(specificationDiv);
 
+    // if the gpu is shown
     if (componentType === 1) {
 
         specificationDiv.style.backgroundImage = "url('" + data.canvas.gpu.imgSrc + "')";
 
         var image = document.getElementById('fanImg');
 
+        // create a new canvas for the fan animation
         var fanCanvas = document.createElement('canvas');
         fanCanvas.setAttribute('id', 'canvas')
         fanCanvas.style.width = image.width.toString() * 2 + 'px'
         fanCanvas.style.height = image.height.toString() + 'px';
-        fanCanvas.style.marginTop = "76px"
-        fanCanvas.style.marginRight = "64px"
+        fanCanvas.style.marginTop = data.canvas.gpu.marginTop;
+        fanCanvas.style.marginRight = data.canvas.gpu.marginRight;
 
         fanCanvas.getBoundingClientRect();
 
         var ctx = fanCanvas.getContext('2d');
         ctx.clearRect(0, 0, fanCanvas.width, fanCanvas.height);
         ctx.save();
+
+        // draw the image in the middle of the canvas and play the animation after delay
         ctx.drawImage(image, fanCanvas.width / 2 - image.width / 2, fanCanvas.height / 2 - image.height / 2);
         setTimeout(rotateGpuFan, 1000)
         specificationDiv.appendChild(fanCanvas)
 
-    } else if (componentType === 2) {
+    }
+    else if (componentType === 2) {
         specificationDiv.style.backgroundImage = "url('" + data.canvas.cpu.imgSrc + "')";
-    } else if (componentType === 3) {
+    }
+    else if (componentType === 3) {
         specificationDiv.style.backgroundImage = "url('" + data.canvas.ssd.imgSrc + "')";
     }
     specificationDiv.appendChild(specificationDescription);
 
+    // add a event listener for double click to come back to the product site,
+    // remove the specification div and show the product
     content.addEventListener('dblclick', () => {
         let specificationDiv = document.getElementById('specificationDiv_' + data.pk.toString())
         let product = document.getElementById('product_' + data.pk.toString())
         specificationDiv.remove()
+        slideButtonContainer.hidden = false;
         product.hidden = false;
     })
 }
 
+// recursive function to play the fan animation (the fan rotates by his own axis)
 function rotateGpuFan() {
 
     const canvas = document.getElementById('canvas');
     var image = document.getElementById('fanImg');
     image.src = 'media/img/GPU_1_fan.png';
 
+    // only if the spec div is shown, else return
     if (canvas !== null){
         const ctx = canvas.getContext('2d');
         // Matrix transformation
