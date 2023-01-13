@@ -1,13 +1,14 @@
 // main container from the website
 const content = document.getElementById('content');
 
+
 // helpfunction to fetch data from a json file
 function fetchData(path) {
     return fetch(path, {
-        method: 'POST', // *GET, POST, PUT, DELETE, etc.
-        mode: 'cors', // no-cors, *cors, same-origin
-        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-        credentials: 'same-origin', // include, *same-origin, omit
+        method: 'POST',
+        mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'same-origin',
         headers: {
             'Accept': 'application/json',
         },
@@ -15,6 +16,7 @@ function fetchData(path) {
         .then(response => response.json())
 
 }
+
 
 // instantiate the slider with the products
 function initSlider() {
@@ -102,6 +104,7 @@ function initSlider() {
     })
 }
 
+
 // slide the product, for or backward
 function slide(direction) {
     var actProduct = null;
@@ -159,20 +162,24 @@ function onComponentClick(componentType, data) {
     }
 }
 
+
 // generate a div to show a specification of the selected component
 function generateSpecificationDiv(componentType, data) {
 
     let product = document.getElementById('product_' + data.pk.toString());
-    let slideButtonContainer = document.getElementById('slide-container');
+    let slideButtons = document.getElementsByClassName('slide-button')
+    for (let i = 0; i < slideButtons.length; i++){
+        slideButtons[i].hidden = true;
+    }
     product.hidden = true;
-    slideButtonContainer.hidden = true;
 
+    // generate a container to show the specific things of the container
     let specificationDiv = document.createElement('div');
     specificationDiv.setAttribute('name', 'specificationDiv');
     specificationDiv.setAttribute('id', 'specificationDiv_' + data.pk.toString());
     specificationDiv.setAttribute('class', 'specification');
 
-
+    // generate div for the description from the component
     let specificationDescription = document.createElement('div');
     specificationDescription.style.width = "200px"
     specificationDescription.style.height = "300px"
@@ -206,11 +213,9 @@ function generateSpecificationDiv(componentType, data) {
         setTimeout(rotateGpuFan, 1000)
         specificationDiv.appendChild(fanCanvas)
 
-    }
-    else if (componentType === 2) {
+    } else if (componentType === 2) {
         specificationDiv.style.backgroundImage = "url('" + data.canvas.cpu.imgSrc + "')";
-    }
-    else if (componentType === 3) {
+    } else if (componentType === 3) {
         specificationDiv.style.backgroundImage = "url('" + data.canvas.ssd.imgSrc + "')";
     }
     specificationDiv.appendChild(specificationDescription);
@@ -218,13 +223,19 @@ function generateSpecificationDiv(componentType, data) {
     // add a event listener for double click to come back to the product site,
     // remove the specification div and show the product
     content.addEventListener('dblclick', () => {
+
         let specificationDiv = document.getElementById('specificationDiv_' + data.pk.toString())
         let product = document.getElementById('product_' + data.pk.toString())
+        let slideButtons = document.getElementsByClassName('slide-button')
+
         specificationDiv.remove()
-        slideButtonContainer.hidden = false;
+        for (let i = 0; i < slideButtons.length; i++){
+            slideButtons[i].hidden = false;
+        }
         product.hidden = false;
     })
 }
+
 
 // recursive function to play the fan animation (the fan rotates by his own axis)
 function rotateGpuFan() {
@@ -234,19 +245,17 @@ function rotateGpuFan() {
     image.src = 'media/img/GPU_1_fan.png';
 
     // only if the spec div is shown, else return
-    if (canvas !== null){
+    if (canvas !== null) {
         const ctx = canvas.getContext('2d');
+
         // Matrix transformation
         ctx.translate(150, 75);
         ctx.rotate(Math.PI / 2);
         ctx.translate(-150, -75);
-
-// Rotated rectangle
         ctx.drawImage(image, canvas.width / 2 - image.width / 2, canvas.height / 2 - image.height / 2);
 
         setTimeout(rotateGpuFan, 15)
-    }
-    else {
+    } else {
         return;
     }
 
