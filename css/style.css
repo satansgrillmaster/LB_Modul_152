@@ -6,7 +6,7 @@ body{
 
 #content{
     width: 1520px;
-    height: 600px;
+    height: 1000px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,4 +30,17 @@ body{
     background-color: rgba(0, 0, 0, 0.6);
     display: flex;
     justify-content: end;
+}
+
+.slide-button{
+    width: 100px;
+    height: 10px;
+}
+
+#slide-container{
+    width: 200px;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
