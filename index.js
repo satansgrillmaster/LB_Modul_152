@@ -29,18 +29,20 @@ function initSlider() {
 
     const slideButtonForward = document.createElement('button');
     slideButtonForward.setAttribute('class', 'slide-button');
+    slideButtonForward.innerText = "Right";
     slideButtonForward.addEventListener('click', () => {
         slide('forward');
     })
 
     const slideButtonBackward = document.createElement('button');
     slideButtonBackward.setAttribute('class', 'slide-button');
+    slideButtonBackward.innerText = "Left";
     slideButtonBackward.addEventListener('click', () => {
         slide('backward');
     })
 
-    slideButtonContainer.appendChild(slideButtonForward);
     slideButtonContainer.appendChild(slideButtonBackward);
+    slideButtonContainer.appendChild(slideButtonForward);
 
     products.then(data => {
 
@@ -183,12 +185,30 @@ function generateSpecificationDiv(componentType, data) {
     let specificationDescription = document.createElement('div');
     specificationDescription.style.width = "200px"
     specificationDescription.style.height = "300px"
-    specificationDescription.style.backgroundColor = "rgba(255, 255, 255, 0.5)"
+    specificationDescription.style.backgroundColor = "rgba(255, 255, 255, 0.5)";
 
     content.appendChild(specificationDiv);
 
     // if the gpu is shown
     if (componentType === 1) {
+
+        // add description text of the component
+        let descriptionName = document.createElement('h3');
+        descriptionName.innerText = "Name:";
+
+        let descriptionNameValue = document.createElement('p');
+        descriptionNameValue.innerText = data.canvas.gpu.name;
+
+        let descriptionFrequency = document.createElement('h3');
+        descriptionFrequency.innerText = "Frequency:";
+
+        let descriptionFrequencyValue = document.createElement('p');
+        descriptionFrequencyValue.innerText = data.canvas.gpu.frequency;
+
+        specificationDescription.appendChild(descriptionName);
+        specificationDescription.appendChild(descriptionNameValue);
+        specificationDescription.appendChild(descriptionFrequency);
+        specificationDescription.appendChild(descriptionFrequencyValue);
 
         specificationDiv.style.backgroundImage = "url('" + data.canvas.gpu.imgSrc + "')";
 
@@ -215,8 +235,46 @@ function generateSpecificationDiv(componentType, data) {
 
     } else if (componentType === 2) {
         specificationDiv.style.backgroundImage = "url('" + data.canvas.cpu.imgSrc + "')";
+
+        // add description text of the component
+        let descriptionName = document.createElement('h3');
+        descriptionName.innerText = "Name:";
+
+        let descriptionNameValue = document.createElement('p');
+        descriptionNameValue.innerText = data.canvas.cpu.name;
+
+        let descriptionFrequency = document.createElement('h3');
+        descriptionFrequency.innerText = "Frequency:";
+
+        let descriptionFrequencyValue = document.createElement('p');
+        descriptionFrequencyValue.innerText = data.canvas.cpu.frequency;
+
+        specificationDescription.appendChild(descriptionName);
+        specificationDescription.appendChild(descriptionNameValue);
+        specificationDescription.appendChild(descriptionFrequency);
+        specificationDescription.appendChild(descriptionFrequencyValue);
+
     } else if (componentType === 3) {
         specificationDiv.style.backgroundImage = "url('" + data.canvas.ssd.imgSrc + "')";
+
+        // add description text of the component
+        let descriptionName = document.createElement('h3');
+        descriptionName.innerText = "Name:";
+
+        let descriptionNameValue = document.createElement('p');
+        descriptionNameValue.innerText = data.canvas.ssd.name;
+
+        let descriptionStorage = document.createElement('h3');
+        descriptionStorage.innerText = "Storage:";
+
+        let descriptionStorageValue = document.createElement('p');
+        descriptionStorageValue.innerText = data.canvas.ssd.storage;
+
+        specificationDescription.appendChild(descriptionName);
+        specificationDescription.appendChild(descriptionNameValue);
+        specificationDescription.appendChild(descriptionStorage);
+        specificationDescription.appendChild(descriptionStorageValue);
+
     }
     specificationDiv.appendChild(specificationDescription);
 
@@ -248,7 +306,7 @@ function rotateGpuFan() {
     if (canvas !== null) {
         const ctx = canvas.getContext('2d');
 
-        // Matrix transformation
+        // matrix transformation
         ctx.translate(150, 75);
         ctx.rotate(Math.PI / 2);
         ctx.translate(-150, -75);
@@ -256,6 +314,7 @@ function rotateGpuFan() {
 
         setTimeout(rotateGpuFan, 15)
     } else {
+        // if the gpu specification div is removed (canvas is null), return
         return;
     }
 

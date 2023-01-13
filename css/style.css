@@ -32,6 +32,10 @@ body{
     justify-content: end;
 }
 
+#specificationDescription{
+    padding: 5px 5px 5px 5px;
+}
+
 .slide-button{
     width: 100px;
     height: 20px;
