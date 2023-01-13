@@ -75,20 +75,18 @@ function initSlider() {
     })
 }
 
-function onComponentClick(componentType, data){
+function onComponentClick(componentType, data) {
 
-    if(componentType === 1){
+    if (componentType === 1) {
         generateSpecificationDiv(1, data.canvas.gpu);
-    }
-    else if (componentType === 2){
+    } else if (componentType === 2) {
         generateSpecificationDiv(2, data.canvas.cpu);
-    }
-    else {
+    } else {
         generateSpecificationDiv(3, data.canvas.ssd);
     }
 }
 
-function generateSpecificationDiv(componentType, data){
+function generateSpecificationDiv(componentType, data) {
 
     let product = document.getElementById('product');
     product.hidden = true;
@@ -96,7 +94,7 @@ function generateSpecificationDiv(componentType, data){
     let specificationDiv = document.createElement('div');
     specificationDiv.setAttribute('id', 'specificationDiv');
     specificationDiv.setAttribute('class', 'specification');
-    specificationDiv.style.backgroundImage  = "url('" + data.imgSrc + "')";
+    specificationDiv.style.backgroundImage = "url('" + data.imgSrc + "')";
 
     let specificationDescription = document.createElement('div');
     specificationDescription.style.width = "200px"
@@ -104,7 +102,7 @@ function generateSpecificationDiv(componentType, data){
     specificationDescription.style.backgroundColor = "rgba(255, 255, 255, 0.5)"
 
 
-    if (componentType === 1){
+    if (componentType === 1) {
 
         var image = document.getElementById('fanImg');
 
@@ -118,13 +116,13 @@ function generateSpecificationDiv(componentType, data){
         fanCanvas.getBoundingClientRect();
 
         var ctx = fanCanvas.getContext('2d');
-        ctx.clearRect(0,0,fanCanvas.width,fanCanvas.height);
+        ctx.clearRect(0, 0, fanCanvas.width, fanCanvas.height);
         ctx.save();
         ctx.drawImage(image,
             fanCanvas.width / 2 - image.width / 2,
             fanCanvas.height / 2 - image.height / 2
         );
-        setTimeout(rotate,2000)
+        setTimeout(rotate, 2000)
 
     }
 
@@ -134,7 +132,7 @@ function generateSpecificationDiv(componentType, data){
 }
 
 
-function rotate(){
+function rotate() {
 
     const canvas = document.getElementById('canvas');
     var image = document.getElementById('fanImg');
@@ -154,7 +152,7 @@ function rotate(){
     );
 
 
-    setTimeout(rotate,15)
+    setTimeout(rotate, 15)
 }
 
 initSlider();
