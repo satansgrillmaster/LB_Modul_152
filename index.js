@@ -4,7 +4,10 @@ function fetchData(path) {
     return fetch(
         path,
         {
-            method: 'GET',
+            method: 'POST', // *GET, POST, PUT, DELETE, etc.
+            mode: 'cors', // no-cors, *cors, same-origin
+            cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: 'same-origin', // include, *same-origin, omit
             headers: {
                 'Accept': 'application/json',
             },
@@ -108,16 +111,19 @@ function generateSpecificationDiv(componentType, data){
 
         var fanCanvas = document.createElement('canvas');
         fanCanvas.style.width = image.width.toString() + 'px'
-        fanCanvas.style.height = image.height.toString() + 'px'
+        fanCanvas.style.height = image.height.toString() + 'px';
 
         fanCanvas.getBoundingClientRect();
 
         var ctx = fanCanvas.getContext('2d');
         // ctx.clearRect(0,0,fanCanvas.width,fanCanvas.height);
-        ctx.save();
+        // ctx.save();
         // ctx.translate(-img.width/3,-img.height/3);
         //ctx.rotate(30 *Math.PI/180);
-        ctx.drawImage(image, 0, 0);
+        ctx.drawImage(image,
+            fanCanvas.width / 2 - image.width / 2,
+            fanCanvas.height / 2 - image.height / 2
+        );
         ctx.restore();
 
     }
